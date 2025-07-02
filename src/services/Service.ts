@@ -1,26 +1,34 @@
 import axios from "axios";
 
 const api = axios.create({
-    baseURL: "https://farmacia-ug0p.onrender.com",
-    //baseURL: "http://localhost:8080",
-})
+	baseURL: import.meta.env.VITE_API_URL,
+	//baseURL: "http://localhost:8080",
+});
 
 export const buscar = async (url: string, setDados: Function) => {
-    const resposta = await api.get(url)
-    console.log("Dados recebidos:", resposta.data)
-    setDados(resposta.data)
-}
+	const resposta = await api.get(url);
+	console.log("Dados recebidos:", resposta.data);
+	setDados(resposta.data);
+};
 
-export const cadastrar = async (url: string, dados: object, setDados: Function) => {
-    const resposta = await api.post(url, dados)
-    setDados(resposta.data)
-}
+export const cadastrar = async (
+	url: string,
+	dados: object,
+	setDados: Function
+) => {
+	const resposta = await api.post(url, dados);
+	setDados(resposta.data);
+};
 
-export const atualizar = async (url: string, dados: object, setDados: Function) => {
-    const resposta = await api.put(url, dados)
-    setDados(resposta.data)
-}
+export const atualizar = async (
+	url: string,
+	dados: object,
+	setDados: Function
+) => {
+	const resposta = await api.put(url, dados);
+	setDados(resposta.data);
+};
 
-export const deletar = async(url: string) => {
-    await api.delete(url)
-}
+export const deletar = async (url: string) => {
+	await api.delete(url);
+};
