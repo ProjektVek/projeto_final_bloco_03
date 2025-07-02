@@ -3,6 +3,7 @@ import { useNavigate, useParams } from "react-router-dom"
 import { atualizar, buscar, cadastrar } from "../../../services/Service"
 import { RotatingLines } from "react-loader-spinner"
 import type Categoria from "../../../models/Categoria"
+import { ToastAlerta } from "../../../utils/ToastAlerta"
 
 function FormCategoria() {
 
@@ -50,18 +51,18 @@ function FormCategoria() {
             try{
                 await atualizar("/categorias", categoria, setCategoria)
 
-                alert("A Categoria foi atualizada com sucesso!")
+                ToastAlerta("A Categoria foi atualizada com sucesso!", "sucesso")
             }catch(error: any){
-                    alert("Erro ao atualizar a categoria!")
+                    ToastAlerta("Erro ao atualizar a categoria!", "erro")
                     console.error(error)
             }
         }else{
             try{
                 await cadastrar("/categorias", categoria, setCategoria)
 
-                alert("A Categoria foi cadastrada com sucesso!")
+                ToastAlerta("A Categoria foi cadastrada com sucesso!", "sucesso")
             }catch(error: any){
-                    alert("Erro ao cadastrar a categoria!")
+                    ToastAlerta("Erro ao cadastrar a categoria!", "erro")
                     console.error(error)
                 }
             }

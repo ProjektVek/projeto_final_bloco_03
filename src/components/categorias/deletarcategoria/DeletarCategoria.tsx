@@ -3,6 +3,7 @@ import { useNavigate, useParams } from 'react-router-dom'
 import { buscar, deletar } from '../../../services/Service'
 import { RotatingLines } from 'react-loader-spinner'
 import type Categoria from '../../../models/Categoria'
+import { ToastAlerta } from '../../../utils/ToastAlerta'
 
 function DeletarTema() {
 	const navigate = useNavigate()
@@ -33,10 +34,10 @@ function DeletarTema() {
 		try {
 			await deletar(`/categorias/${id}`)
 
-			alert('Categoria excluída com sucesso!')
+			ToastAlerta('Categoria excluída com sucesso!', 'sucesso')
 		} catch (error: any) {
-				alert('Erro ao Excluir a categoria!')
-				console.error(error)
+			ToastAlerta('Erro ao Excluir a categoria!', 'erro')
+			console.error(error)
 		}
 
 		setIsLoading(false)
