@@ -1,22 +1,34 @@
-import { ShoppingCart, User } from "@phosphor-icons/react"
+import { ShoppingCart, User } from "@phosphor-icons/react";
+import { Link } from "react-router-dom";
 
 function Navbar() {
-  return (
-    <div className='w-full bg-indigo-900 text-white
-                flex justify-center py-4'>
-    
-        <div className="container flex justify-between text-lg">
-            <img src="../../../src/assets/logo.png" alt="Logo da farmácia"  className="h-10"/>
-
-            <div className='flex gap-4'>
-              Categorias
-              Cadastrar Categoria
-              <User size={36} color="#ffffff" />
-              <ShoppingCart size={36} color="#ffffff" />
-            </div>
-        </div>
-    </div>
-  )
+	return (
+		<div
+			className="w-full bg-indigo-900 text-white
+                flex justify-center py-4"
+		>
+			<div className="container flex justify-between text-lg">
+				<Link to="/" className="hover:underline">
+					<img
+						src="../../../src/assets/logo.png"
+						alt="Logo da farmácia"
+						className="h-10"
+					/>
+				</Link>
+                
+				<div className="flex gap-4">
+					<Link to="/categorias" className="hover:underline">
+						Categorias
+					</Link>
+					<Link to="/cadastrarcategoria" className="hover:underline">
+						Cadastrar Categoria
+					</Link>
+					<User size={36} color="#ffffff" />
+					<ShoppingCart size={36} color="#ffffff" />
+				</div>
+			</div>
+		</div>
+	);
 }
 
-export default Navbar
+export default Navbar;

@@ -17,6 +17,8 @@ function ListaCategorias() {
 
             await buscar("/categorias", setCategorias)
 
+            console.log(categorias)
+
         } catch (error: any){
           console.log(error)
         } finally{
