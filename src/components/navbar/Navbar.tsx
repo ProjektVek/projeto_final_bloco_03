@@ -10,7 +10,7 @@ function Navbar() {
 			<div className="container flex justify-between text-lg">
 				<Link to="/" className="hover:underline">
 					<img
-						src="../../../src/assets/logo.png"
+						src="https://ik.imagekit.io/vek/farmacia/logo.png?updatedAt=1751466088016"
 						alt="Logo da farmácia"
 						className="h-10"
 					/>
